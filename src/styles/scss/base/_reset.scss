@@ -1,0 +1,63 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+::selection {
+  color: white;
+  background: $secondary-color;
+  opacity: 0.6;
+}
+ul,
+ol,
+dl {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+img {
+  max-width: 100%;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+}
+#root main {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+}
+
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1em;
+  width: 1em;
+  border-radius: 50em;
+  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+    no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0;
+  cursor: pointer;
+}
+
+input[type='search']:focus::-webkit-search-cancel-button {
+  opacity: 0.5;
+  pointer-events: all;
+}
+
+input[type='search'].dark::-webkit-search-cancel-button {
+  filter: invert(1);
+}

@@ -1,0 +1,17 @@
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+}
+
+@mixin max-width($max-width) {
+  @media (max-width:#{$max-width}) {
+    @content;
+  }
+}
+
+@mixin min-width($min-width) {
+  @media (min-width: #{$min-width}) {
+    @content;
+  }
+}

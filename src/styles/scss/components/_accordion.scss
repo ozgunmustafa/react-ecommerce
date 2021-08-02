@@ -1,0 +1,42 @@
+details > summary {
+  list-style-type: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+details > .content {
+  padding: 10px;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+details > summary::after {
+  content: '+ ';
+}
+
+details > summary::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  border-radius: 50%x;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+details[open] > .content {
+  background-color: #f8f9fa;
+}
+details[open] > summary::after {
+  content: '- ';
+}
+
+details[open] > summary {
+  margin-bottom: 0.5rem;
+}

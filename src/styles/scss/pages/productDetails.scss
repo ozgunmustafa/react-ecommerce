@@ -1,0 +1,118 @@
+.product-details {
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+  &__img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    img {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+
+    &__title {
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+    &__category {
+      margin-bottom: 20px;
+    }
+    &__price {
+      font-size: 1.7rem;
+      font-weight: 900;
+      padding: 10px 0 10px 15px;
+      border-left: 7px solid $secondary-color;
+      margin-bottom: 20px;
+    }
+
+    .btn-cta {
+      background-color: $secondary-color;
+      border: 1px solid $secondary-color;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: bold;
+      padding: 15px 0;
+      margin-top: 30px;
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}
+
+//dummy
+
+.product-details__dummy {
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+  position: relative;
+  .dummy {
+    background-color: #eee;
+    width: 100%;
+  }
+  &__img {
+    width: 100%;
+    min-height: 350px;
+    height: 100%;
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    .title {
+      height: 60px;
+      margin-bottom: 18px;
+    }
+    .category {
+      height: 24px;
+      margin-bottom: 18px;
+      width: 30%;
+    }
+    .price {
+      height: 60px;
+      margin-bottom: 20px;
+      width: 20%;
+    }
+    .accordion {
+      height: 35px;
+      margin-bottom: 20px;
+    }
+    .button {
+      height: 60px;
+      margin-top: 30px;
+    }
+  }
+}
+
+@include max-width(768px) {
+  .product-details {
+    display: grid;
+    grid-template-columns: 1fr;
+    &__img {
+      margin-bottom: 25px;
+    }
+    &__body {
+    }
+  }
+  .product-details__dummy {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    &__body {
+      padding: 0;
+      margin-top: 25px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+main {
+  margin-top: 5.1rem;
+}
+@include max-width(768px) {
+  main {
+    margin-top: 7.5rem;
+  }
+}
