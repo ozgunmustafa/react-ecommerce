@@ -56,11 +56,14 @@ const Header = () => {
               <Link to="/sepet">
                 <BiCartAlt />
                 <span className="hide-md">Sepetim</span>
-                {basketProducts.length > 0 ? (
-                  <span className="ntf-count">{basketProducts.length}</span>
-                ) : (
-                  ''
-                )}
+
+                <span
+                  className={`ntf-count ${
+                    basketProducts.length > 0 ? 'show-element' : 'hide-element'
+                  }`}
+                >
+                  {basketProducts.length}
+                </span>
               </Link>
             </li>
           </ul>

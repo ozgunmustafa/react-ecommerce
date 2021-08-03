@@ -22,8 +22,6 @@ export const basketReducer = (state = initState, action) => {
 
     case basketTypes.ADD_TO_BASKET_ERR:
       return { ...state, errMessage: action.payload };
-    
-    
 
     case basketTypes.REMOVE_FROM_BASKET:
       return {

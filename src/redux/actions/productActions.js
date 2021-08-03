@@ -3,9 +3,9 @@ import axios from 'axios';
 
 export const getProducts = () => (dispatch) => {
   axios
-    .get('https://fakestoreapi.com/products?limit=33')
+    .get('https://fakestoreapi.com/products?limit=20')
     .then((response) => {
-      console.log(response);
+      //console.log(response);
       dispatch({ type: productTypes.GET_PRODUCTS, payload: response.data });
     })
     .catch((err) => {
@@ -15,7 +15,6 @@ export const getProducts = () => (dispatch) => {
       });
     });
 };
-
 
 export const productIndex = (productId) => (dispatch) => {
   axios

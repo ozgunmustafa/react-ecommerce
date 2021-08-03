@@ -1,4 +1,12 @@
 import React from 'react';
+import {
+  FiFacebook,
+  FiInstagram,
+  FiLinkedin,
+  FiMail,
+  FiPhoneCall,
+  FiTwitter,
+} from 'react-icons/fi';
 
 const Footer = () => {
   return (
@@ -43,7 +51,7 @@ const Footer = () => {
           <div className="col-lg-3 col-6 mb-20">
             <ul className="footer-menu">
               <li>
-                <a href="/">BURASI HAKKINDA</a>
+                <a href="/">KURUMSAL</a>
               </li>
               <li>
                 <a href="/">Tarihçe</a>
@@ -97,13 +105,19 @@ const Footer = () => {
               <li>
                 {' '}
                 <a href="/">
-                  <i className="fas fa-phone"></i>+90 507 386 11 25
+                  <i className="fas fa-phone">
+                    <FiPhoneCall />
+                  </i>
+                  +90 507 386 11 25
                 </a>{' '}
               </li>
               <li>
                 {' '}
                 <a href="/">
-                  <i className="fas fa-envelope"></i>ozzgunmustafa@gmail.com
+                  <i className="fas fa-envelope">
+                    <FiMail />
+                  </i>
+                  ozzgunmustafa@gmail.com
                 </a>{' '}
               </li>
             </ul>
@@ -116,22 +130,30 @@ const Footer = () => {
             <ul className="social-icons">
               <li>
                 <a href="/">
-                  <i className="fab fa-facebook-f"></i>
+                  <i>
+                    <FiFacebook />
+                  </i>
                 </a>
               </li>
               <li>
                 <a href="/">
-                  <i className="fab fa-twitter"></i>
+                  <i>
+                    <FiTwitter />
+                  </i>
                 </a>
               </li>
               <li>
                 <a href="/">
-                  <i className="fab fa-instagram"></i>
+                  <i>
+                    <FiInstagram />
+                  </i>
                 </a>
               </li>
               <li>
                 <a href="/">
-                  <i className="fab fa-youtube"></i>
+                  <i>
+                    <FiLinkedin />
+                  </i>
                 </a>
               </li>
             </ul>

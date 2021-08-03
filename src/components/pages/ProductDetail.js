@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 import { addToBasket } from '../../redux/actions/basketActions';
 
 const ProductDetail = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  //const [isLoaded, setIsLoaded] = useState(false);
 
   const product = useSelector((state) => state.product);
+  const isLoaded = useSelector((state) => state.product.isLoaded);
   const { image, title, price, category, description } = product;
 
   const dispatch = useDispatch();
@@ -22,9 +23,6 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (productId && productId !== '') {
-      setTimeout(() => {
-        setIsLoaded(true);
-      }, 2000);
       dispatch(productIndex(productId));
     }
   }, [productId]);

@@ -20,15 +20,13 @@ import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  //const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   const products = useSelector((state) => state.allProducts.products);
+  const isLoaded = useSelector((state) => state.allProducts.isLoaded);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 3000);
     dispatch(getProducts());
   }, []);
 

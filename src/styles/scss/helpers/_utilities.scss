@@ -26,6 +26,18 @@
   padding: 0 clamp(0.5rem, 100%, 0.7rem);
 }
 
+.hide-element {
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.show-element {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
 .shimmer {
   -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: forwards;

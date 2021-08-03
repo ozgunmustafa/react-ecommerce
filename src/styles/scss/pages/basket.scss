@@ -96,9 +96,8 @@
   }
 }
 
-
-.basket-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 15px 15px;
+@include max-width(768px) {
+  .basket-grid {
+    grid-template-columns: 1fr;
+  }
 }
