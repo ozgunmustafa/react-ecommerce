@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import MainLayout from '../layout/MainLayout';
 import { getProducts } from '../../redux/actions/productActions';
 import { MdTouchApp } from 'react-icons/md';
@@ -20,7 +20,6 @@ import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = () => {
-  //const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
 
   const products = useSelector((state) => state.allProducts.products);
@@ -28,7 +27,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, []);
+  }, [products]);
 
   return (
     <MainLayout>
