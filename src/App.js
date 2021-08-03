@@ -4,7 +4,7 @@ import Basket from './components/pages/Basket';
 import Home from './components/pages/Home';
 import PageNotFound from './components/pages/PageNotFound';
 import ProductDetail from './components/pages/ProductDetail';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
