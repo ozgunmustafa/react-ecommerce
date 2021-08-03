@@ -27,7 +27,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getProducts());
-  }, [products]);
+  }, [products, dispatch]);
 
   return (
     <MainLayout>

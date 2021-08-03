@@ -25,7 +25,7 @@ const ProductDetail = () => {
     if (productId && productId !== '') {
       dispatch(productIndex(productId));
     }
-  }, [productId]);
+  }, [productId, dispatch]);
 
   return (
     <MainLayout>
