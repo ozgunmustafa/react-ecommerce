@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { BiSearchAlt, BiUser, BiCartAlt, BiHeart } from 'react-icons/bi';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo from '../../../images/logo.png';
 
 const Header = () => {
+  const basketProducts = useSelector((state) => state.basket.basketProducts);
+  console.log('asdasd', basketProducts);
+
   const [searchText, setSearchText] = useState('');
 
   const handleChange = (e) => {
@@ -13,7 +18,9 @@ const Header = () => {
     <header className="main-header">
       <div className="container header-container">
         <div className="header-container__left">
-          <img src={logo} alt="asidöasdasd" className="logo" />
+          <Link to="/">
+            <img src={logo} alt="asidöasdasd" className="logo" />
+          </Link>
         </div>
         <div className="header-container__center">
           <div className="search-bar">
@@ -46,11 +53,15 @@ const Header = () => {
               </a>
             </li>
             <li className="main-menu__item">
-              <a href="/">
+              <Link to="/sepet">
                 <BiCartAlt />
                 <span className="hide-md">Sepetim</span>
-                <span className="ntf-count">11</span>
-              </a>
+                {basketProducts.length > 0 ? (
+                  <span className="ntf-count">{basketProducts.length}</span>
+                ) : (
+                  ''
+                )}
+              </Link>
             </li>
           </ul>
         </div>

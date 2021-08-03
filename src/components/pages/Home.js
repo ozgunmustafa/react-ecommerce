@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MainLayout from '../layout/MainLayout';
-import { setProducts } from '../../redux/actions/productActions';
+import { getProducts } from '../../redux/actions/productActions';
 import { MdTouchApp } from 'react-icons/md';
 import { GiBoxUnpacking, GiReturnArrow } from 'react-icons/gi';
 import { AiOutlineAppstoreAdd } from 'react-icons/ai';
@@ -15,33 +15,22 @@ import {
   categoryImage7,
 } from '../../images/index';
 
-import axios from 'axios';
 import { Container, ProductPlaceHolder, Section, ShopAdviceCard } from '../UI';
 import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const products = useSelector((state) => state.allProducts.products);
   const dispatch = useDispatch();
 
-  const fetchProducts = async () => {
-    const response = await axios
-      .get('https://fakestoreapi.com/products?limit=33')
-      .catch((err) => {
-        console.log(err);
-      });
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 2500);
-    dispatch(setProducts(response.data));
-  };
+  const products = useSelector((state) => state.allProducts.products);
 
   useEffect(() => {
-    fetchProducts();
+    setTimeout(() => {
+      setIsLoaded(true);
+    }, 3000);
+    dispatch(getProducts());
   }, []);
-
-  console.log('RR', products);
 
   return (
     <MainLayout>

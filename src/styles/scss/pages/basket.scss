@@ -35,6 +35,8 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 
     &__img {
+      border: 1px solid #eee;
+      padding: 3px;
       width: 100px;
       height: 100%;
       min-height: 115px;
@@ -67,6 +69,7 @@
         height: 30px;
         color: #ddd;
         margin-right: 20px;
+        cursor: pointer;
       }
     }
   }
@@ -91,4 +94,11 @@
       color: #eee;
     }
   }
+}
+
+
+.basket-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px 15px;
 }

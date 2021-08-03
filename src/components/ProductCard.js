@@ -1,7 +1,15 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { addToBasket } from '../redux/actions/basketActions';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onClick }) => {
+  const dispatch = useDispatch();
+
+  const addBasket = (product) => {
+    dispatch(addToBasket(product));
+  };
+
   return (
     <Link to={`/product/${product.id}`} className="product-card">
       <div className="product-card__img__wrapper">
@@ -24,7 +32,14 @@ const ProductCard = ({ product }) => {
             <span className="new-price">{product.price.toFixed(2)} ₺</span>
           </div>
         </div>
-        <button className="hvr-icon-rotate btn-cta btn-cta-secondary">
+        <button
+          className="hvr-icon-rotate btn-cta btn-cta-secondary"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addBasket(product);
+          }}
+        >
           SEPETE EKLE
         </button>
       </div>

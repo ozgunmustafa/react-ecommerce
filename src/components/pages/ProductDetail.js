@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectedProduct } from '../../redux/actions/productActions';
+import { productIndex } from '../../redux/actions/productActions';
 import MainLayout from '../layout/MainLayout';
 import { Accordion, Container, ProductDetailPlacehHolder } from '../UI';
 import { Link } from 'react-router-dom';
+import { addToBasket } from '../../redux/actions/basketActions';
 
 const ProductDetail = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,21 +16,16 @@ const ProductDetail = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
 
-  const fetchProductDetail = async () => {
-    const response = await axios
-      .get(`https://fakestoreapi.com/products/${productId}`)
-      .catch((err) => {
-        console.log(err);
-      });
-    setTimeout(() => {
-      setIsLoaded(true);
-    }, 2000);
-    dispatch(selectedProduct(response.data));
+  const addBasket = (product) => {
+    dispatch(addToBasket(product));
   };
 
   useEffect(() => {
     if (productId && productId !== '') {
-      fetchProductDetail();
+      setTimeout(() => {
+        setIsLoaded(true);
+      }, 2000);
+      dispatch(productIndex(productId));
     }
   }, [productId]);
 
@@ -53,7 +48,9 @@ const ProductDetail = () => {
               <span className="product-details__body__price">
                 {price + ' TL'}
               </span>
-              <p className="product-details____body__description">{description}</p>
+              <p className="product-details____body__description">
+                {description}
+              </p>
               <div className="mt-30">
                 <Accordion
                   summary="Non velit quis nulla aute magna"
@@ -68,7 +65,12 @@ const ProductDetail = () => {
                 />
               </div>
 
-              <button className="rotate btn-cta">SEPETE EKLE</button>
+              <button
+                className="rotate btn-cta"
+                onClick={(e) => addBasket(product)}
+              >
+                SEPETE EKLE
+              </button>
             </div>
           </div>
         ) : (
