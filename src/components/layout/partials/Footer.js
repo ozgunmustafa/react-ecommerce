@@ -7,6 +7,7 @@ import {
   FiPhoneCall,
   FiTwitter,
 } from 'react-icons/fi';
+import logo from '../../../images/logo.png';
 
 const Footer = () => {
   return (
@@ -45,6 +46,9 @@ const Footer = () => {
               <li>
                 <a href="/">Kayıt Ol</a>
               </li>
+              <li>
+                <a href="/">Şifremi Unuttum</a>
+              </li>
             </ul>
           </div>
 
@@ -77,7 +81,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="col-lg-3 col-6 mb-20">
+          <div className="col-lg-3 col-12 mb-20">
             <ul className="footer-menu">
               <li>
                 <a href="/">MÜŞTERİ HİZMETLERİ</a>
@@ -124,7 +128,7 @@ const Footer = () => {
           </div>
 
           <div className="col-lg-3 text-center mb-20">
-            <img src="img/logo.svg" alt="" className="w-75 mb-30" />
+            <img src={logo} alt="" className="w-50 mb-20" />
 
             <p className="fw-700"> Bizi Takip Edin</p>
             <ul className="social-icons">
