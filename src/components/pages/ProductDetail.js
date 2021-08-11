@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { productIndex } from '../../redux/actions/productActions';
@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
 import { addToBasket } from '../../redux/actions/basketActions';
 
 const ProductDetail = () => {
-  //const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const product = useSelector((state) => state.product);
-  const isLoaded = useSelector((state) => state.product.isLoaded);
+  //const isLoaded = useSelector((state) => state.product.isLoaded);
   const { image, title, price, category, description } = product;
 
   const dispatch = useDispatch();
@@ -23,9 +23,10 @@ const ProductDetail = () => {
 
   useEffect(() => {
     if (productId && productId !== '') {
+      setIsLoaded(true);
       dispatch(productIndex(productId));
     }
-  }, [productId, dispatch]);
+  }, [isLoaded, productId, dispatch]);
 
   return (
     <MainLayout>

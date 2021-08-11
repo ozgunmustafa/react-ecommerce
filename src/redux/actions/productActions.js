@@ -1,11 +1,10 @@
 import { productTypes } from '../types/action-types';
-import axios from 'axios';
+import apiProduct from '../../utils/apiProduct';
 
-export const getProducts = () => (dispatch) => {
-  axios
-    .get('https://fakestoreapi.com/products?limit=20')
+export const getProducts = () => async (dispatch) => {
+  await apiProduct
+    .get('/products?limit=20')
     .then((response) => {
-      //console.log(response);
       dispatch({ type: productTypes.GET_PRODUCTS, payload: response.data });
     })
     .catch((err) => {
@@ -16,11 +15,10 @@ export const getProducts = () => (dispatch) => {
     });
 };
 
-export const productIndex = (productId) => (dispatch) => {
-  axios
-    .get(`https://fakestoreapi.com/products/${productId}`)
+export const productIndex = (productId) => async (dispatch) => {
+  await apiProduct
+    .get(`/products/${productId}`)
     .then((response) => {
-      console.log(response);
       dispatch({ type: productTypes.PRODUCT_INDEX, payload: response.data });
     })
     .catch((err) => {

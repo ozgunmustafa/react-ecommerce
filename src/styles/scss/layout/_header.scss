@@ -63,7 +63,15 @@
   }
   &__button {
     position: relative;
-    &::before {
+   
+    background-color: #f8f9fa;
+    height: 100%;
+    outline: none;
+    border: none;
+    position: absolute;
+    padding: 0 15px;
+    right: 5px;
+     &::before {
       content: '';
       height: 60%;
       width: 1px;
@@ -72,13 +80,6 @@
       left: 0;
       top: 7px;
     }
-    background-color: #f8f9fa;
-    height: 40px;
-    outline: none;
-    border: none;
-    position: absolute;
-    padding: 0 15px;
-    right: 5px;
   }
 }
 
@@ -113,6 +114,16 @@
 }
 
 @include max-width(767px) {
+  .search-bar {
+  &__input {
+    font-size:.8rem;
+    height: 30px;
+  }
+}
+.main-header{
+  padding: 10px 0 7px 0
+}
+
   .logo {
     width: 60px;
   }
