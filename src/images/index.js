@@ -13,6 +13,7 @@ import categoryImage12 from './categories/category-12.jpg';
 import categoryImage13 from './categories/category-13.jpg';
 import categoryImage14 from './categories/category-14.jpg';
 import categoryImage15 from './categories/category-15.jpg';
+import cartGif from './cart.gif';
 
 export {
   categoryImage1,
@@ -30,4 +31,5 @@ export {
   categoryImage13,
   categoryImage14,
   categoryImage15,
+  cartGif,
 };

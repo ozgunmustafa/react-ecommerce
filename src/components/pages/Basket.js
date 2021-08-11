@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import BasketProductCard from '../BasketProductCard';
 import MainLayout from '../layout/MainLayout';
 import { Container } from '../UI';
+import { cartGif } from '../../images/index';
+import { Link } from 'react-router-dom';
 
 const Basket = () => {
   const basketProducts = useSelector((state) => state.basket.basketProducts);
@@ -26,10 +28,10 @@ const Basket = () => {
       <Container>
         <div className="basket-grid py-40">
           <div className="basket-grid__left">
-            <h1 className="page-title mb-20">Sepetim</h1>
-
             {basketProducts.length > 0 ? (
               <div className="products-list">
+                <h1 className="page-title mb-20">Sepetim</h1>
+
                 {basketProducts.map((product, index) => (
                   <BasketProductCard product={product} key={index} />
                 ))}
@@ -39,14 +41,30 @@ const Basket = () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
+                  flexDirection: 'column',
                   justifyContent: 'center',
-                  fontWeight: 'bold',
                   paddingTop: '20px',
                   paddingBottom: '20px',
                   height: '30vh',
+                  fontSize: '14px',
+                  color: '#73a6d3',
                 }}
               >
+                <img
+                  src={cartGif}
+                  width="50px"
+                  height="50"
+                  alt="cart has no item"
+                  className="mb-30"
+                />
                 Sepetinizde herhangi bir ürün bulunmamaktadır.
+                <Link
+                  to="/"
+                  style={{ fontSize: '16px', fontWeight: 'bold' }}
+                  className="mt-30"
+                >
+                  Alışverişe Devam Et
+                </Link>
               </div>
             )}
           </div>
